@@ -1,0 +1,20 @@
+#
+# system.module        -       Stephen Fegan 26 September 1996
+#
+
+Module background interval 60 preload
+
+# Load the module background and pass it the arguments 'interval 60 preload'
+# (eg change the background every 60 seconds and preload them instead
+# of reading from disk every time)
+
+system.bg.Netsoc.3;@0,30
+system.bg.Netsoc.4;@0,30
+EndModule
+
+# Turn on the Bar Clock
+Module internal barclock
+
+# Turn on Mail Check
+Module internal mailcheck
+             

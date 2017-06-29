@@ -1,0 +1,12 @@
+
+Countdown module for flash.
+
+Written by Steve Fegan - I think.
+
+This modules is used to display a counter on the menu screen.
+It is set up in the system.module file.
+E.g.:
+Module countdown 25/12/2001 0:0:0
+Only @@@@@@ seconds
+until Christmas!
+EndModule     

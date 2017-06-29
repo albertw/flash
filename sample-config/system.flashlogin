@@ -1,0 +1,20 @@
+# And now for the flash system.flashlogin file
+# which gets executed at login.
+
+# Going left at the main screen does not exit
+set noclobber
+
+# Environment stuff
+setenv NNTPSERVER news
+setenv PATH /usr/slocal/bin:/usr/slocal/shell
+setenv MANPATH /usr/slocal/man:/usr/local/man:/usr/man/preformat:/usr/man:/usr/X11/man:usr/openwin/man
+setenv EDITOR /usr/bin/vi
+setenv PAGER "/usr/bin/more"
+#setenv MAIL "~/Mailbox"
+setenv MAIL "~/Maildir/"
+
+# show mail
+#exec /usr/slocal/bin/nfrm
+exec /usr/bin/mesg y
+
+pause [--- Press ENTER to start flash ---]            

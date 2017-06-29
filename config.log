@@ -1,0 +1,87 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:535: checking for gcc
+configure:648: checking whether the C compiler (gcc  ) works
+configure:664: gcc -o conftest    conftest.c  1>&5
+configure:690: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:695: checking whether we are using GNU C
+configure:704: gcc -E conftest.c
+configure:723: checking whether gcc accepts -g
+configure:756: checking for main in -ldl
+configure:771: gcc -o conftest -g -O2   conftest.c -ldl   1>&5
+/usr/bin/ld: Can't find library for -ldl
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 764 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:799: checking for main in -lncurses
+configure:814: gcc -o conftest -g -O2   conftest.c -lncurses   1>&5
+/usr/bin/ld: Can't find library for -lncurses
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 807 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:843: checking how to run the C preprocessor
+configure:864: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:923: checking for ANSI C header files
+configure:936: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1003: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1027: checking for sys/wait.h that is POSIX.1 compatible
+configure:1048: gcc -c -g -O2  conftest.c 1>&5
+configure:1072: checking for fcntl.h
+configure:1082: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1072: checking for sys/time.h
+configure:1082: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1072: checking for syslog.h
+configure:1082: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1072: checking for unistd.h
+configure:1082: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1110: checking for working const
+configure:1164: gcc -c -g -O2  conftest.c 1>&5
+configure:1185: checking for pid_t
+configure:1218: checking for size_t
+configure:1251: checking for sys_siglist declaration in signal.h or unistd.h
+configure:1268: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:1264: `sys_siglist' undeclared (first use in this function)
+configure:1264: (Each undeclared identifier is reported only once
+configure:1264: for each function it appears in.)
+configure: failed program was:
+#line 1256 "configure"
+#include "confdefs.h"
+#include <sys/types.h>
+#include <signal.h>
+/* NetBSD declares sys_siglist in unistd.h.  */
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+int main() {
+char *msg = *(sys_siglist + 1);
+; return 0; }
+configure:1289: checking whether time.h and sys/time.h may both be included
+configure:1303: gcc -c -g -O2  conftest.c 1>&5
+configure:1324: checking whether struct tm is in sys/time.h or time.h
+configure:1337: gcc -c -g -O2  conftest.c 1>&5
+configure:1359: checking whether getpgrp takes no argument
+configure:1422: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1446: checking for 8-bit clean memcmp
+configure:1464: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1482: checking return type of signal handlers
+configure:1504: gcc -c -g -O2  conftest.c 1>&5
+configure:1525: checking for mktime
+configure:1553: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1525: checking for select
+configure:1553: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1525: checking for strerror
+configure:1553: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1609: checking for a BSD compatible install
+configure:1676: checking for less

@@ -1,0 +1,14 @@
+Here are a few things I'd like to see done in Flash!
+
+* FreeBSD support fixed.
+* configure should be able to work out the programs you have
+  and make the sample config from that.
+* Some things in the makefile, like LIBDIR, cannot be changed
+  without breaking the compile.
+* Some compilers really dont like parsing nc_about.c
+* rpms and debs produced.
+* configure to produce a makefile that works across all OS's!
+  currently for example you must make manual changes for Solaris
+* release patches for common programs and/or give guidelines
+  on how to make the programs within flash secure (mutt/vi etc)
+* fix `flash -v` - segfaults

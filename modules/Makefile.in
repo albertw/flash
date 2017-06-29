@@ -1,0 +1,11 @@
+CC = gcc
+DEBUG = -g
+CFLAGS = $(DEBUG) -O3 -fpic -shared -Wall
+LDFLAGS = -shared
+
+OBJECTS = countdown background alarms
+
+all: $(OBJECTS)
+clean:
+	rm $(OBJECTS)
+

@@ -1,0 +1,100 @@
+Package name:     lash
+Version number:   0.9.4
+Original author:  Stephen Fegan <steve@netsoc.ucd.ie>
+Original URL:     ftp://ftp.netsoc.ucd.ie/pub/computing/flash/flash-stable-latest.tgz
+HP-UX URL:        http://hpux.connect.org.uk/hppd/cgi-bin/search?package=&term=lash-
+Dependencies:     ncurses
+Install tree:     /opt/lash
+Report bugs to:   stephie@connect.org.uk
+Tested on:        HP 9000/780/C160 running HP-UX 11.00
+C compiler used:  Version A.11.01.21505.GP
+Purpose:
+A secure menu driven shell for Unix. Flash provides user friendliness and easy
+configurability. It shows an NCURSES menu, which allows users to get to the
+services you with to provide them with. Its ideal for a student-run telnet
+server which needs to shelter the users from some of the nastinesses of UNIX,
+and shelter the system from nasty users!
+Date archived:    Wed 23 May 2001
+
+-------------------------------------------------------------------------------
+
+System:
+======
+	HP-UX shin B.11.00 A 9000/780
+
+URL:
+====
+	http://www.netsoc.ucd.ie/flash/	
+
+HP Porting Changes:
+===================
+
+  Configuration Files:
+      configure --->  Backed up as configure.OK
+      Makefile ---->  Added HP only modifictaions.
+
+   |  ALSO:
+   |  config.h  ---->   #define LIBPREFIX "/opt/lash/lib"
+   |  acconfig.h --->   #define LIBPREFIX
+   |                    These two are set by configure to: "/lib/flash"
+
+
+  Source:
+         exec.c  ---->   job_status status returns hard coded sys_siglist.
+
+      The modules dont seem to work(?)  If you need them theres a hint
+      in modules/README.countdown.
+
+      %less README.countdown 
+	Countdown module for flash. Written by Steve Fegan - I think.
+	This modules is used to display a counter on the menu screen.
+
+	It is set up in the system.module file. E.g.:
+
+	Module countdown 25/12/2001 0:0:0
+	Only @@@@@@ seconds
+	until Christmas!
+	EndModule     
+
+
+ 
+
+Building:
+=========
+
+  First unpack the software:
+
+  	% gunzip -c pkg-version.tar.gz | tar -xvf -
+
+  Run "configure" || "xmkmf" to re-generate the Makefiles. 
+
+  Run "make" in the top level dir.
+
+  Use "make -n install" to check the defaults, then "make install"
+
+
+Running:
+========
+
+       Edit system.menu to get the paths to your clients right.
+
+       I'v made a start by installing README in /opt/flash/lib/flash,
+       this plain text file can be loaded when users hit <about flash>.
+
+       If you want the modules you could try reconfiguring the package.
+
+
+Installed:
+==========
+ By
+ --     [stephie@connect.org.uk]
+ On
+ --	[ 18/05/01 ]
+ 
+
+
+       ©HPUX Porting and Archive Centre, Connect, Liverpool University.
+
+    __/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
+  __/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
+

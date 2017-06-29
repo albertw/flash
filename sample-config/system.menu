@@ -1,0 +1,131 @@
+#!/opt/tmp/flash/sbin/flash
+#
+# Sample flash menu file definition - niallm@netsoc.ucd.ie 1999
+#
+
+# Main menu
+
+Menu NoBox NoColour Top Left Offset 1 1 Main
+
+# This defines a menu with no bounding box, no background colours,
+# tells flash that it should be placed at the top left with an offset
+# across and down of 1. The menu is called 'Main'.
+
+	SubMenu:Electronic Mail:C:Mail:
+
+# A menu entry called 'Mail' is defined. The title is 'C'entered.
+# See the flash menu page for more definitions.
+
+	SubMenu:World Wide Web:C:Web:
+	SubMenu:Customise Your Account:C:Customise:
+	SubMenu:Contacting Netsoc:C:Contact:
+	SubMenu:Other Users:C:Users:
+	Exec:About Flash:N:/usr/bin/more /opt/flash/lib/flash/README:
+
+# Note that the pager defined above has had all the shell escapes
+# removed from it. You will need to do this with yours too.
+
+	Title::
+
+# No title above the window. This looks more pleasing for main menus,
+# we find.
+
+	Quit:Logout:C:
+
+EndMenu
+
+Menu Top Right Offset 1 -1 Mail
+
+	Title:Read, Send or Review your e-mail:h:
+
+	Exec:Pine (Program for Internet News and E-Mail):N:/usr/slocal/bin/pine:
+
+# 'N' means it takes no arguments. By far the safest way to execute programs.
+
+	Nop:The easiest mail package to learn and use.:
+	Nop:Pine is menu driven and has a lot of help:
+
+# Nops are non-selectable menu items - used here for explanatory text.
+
+	Exit:Exit this menu:
+# All menus should have Exit lines.
+
+EndMenu
+
+Menu Top Right Offset 1 -1 Web
+	Title:Experience the World Wide Web:h:
+	Exec:Lynx (Text based web browser):N:/usr/slocal/bin/lynx -ftp -noprint -restrictions=editor,file_url,exec,shell -telnet:
+
+# Note that 'N' means no arguments can be supplied by the user -
+# we can still supply them in the menu file.
+# Anyone who /really/ let people use complicated lynx in a secure
+# environment probably hasn't done a thorough code review...
+
+	Nop:Lynx is useful for "surfing" the web when you:
+	Nop:do not want to use windows and Netscape.:
+	Nop:It's a lot quicker, but has no graphics or sound.:
+	Nop::
+	Exit:Exit this menu:
+EndMenu
+
+Menu Top Right Offset 1 -1 Users
+	Title:NetSoc user communication:h:
+	Args:finger (who and where):P:/usr/bin/finger -m:Who to finger:
+
+# Args is a declaration for a program which can have arguments
+# supplied by the user. The arguments are typed into a box the
+# title of which is 'Who to finger'. The arguments are appended
+# after '/usr/slocal/bin/finger -m'
+
+	Nop:You can specify a user on NetSoc or another host:
+	Nop:or you can list all users currently on NetSoc:
+	Nop::
+	Args:Messages On/Off:/usr/bin/mesg:Enter y or n:
+	Nop:If you enter "n" it will prevent you from:
+	Nop:getting "hey" messages and "talk" requests:
+	Nop:("y" will turn it back on again.):
+	Nop::
+	Exit:Exit this menu:
+
+EndMenu
+
+Menu Top Right Offset 0 -2 Customise
+Title:Customise your account:h:
+Exec:Choose a new password:/usr/bin/passwd:
+Nop:NEVER choose an English word a name as a:
+Nop:password - they are too easy to guess!:
+Nop::
+Exit:Exit this menu:
+EndMenu
+Menu Top Right Offset 1 -1 Contact
+Title:Talk to us:h:
+	Exec:Mail Support:N:/usr/slocal/bin/pine support:
+	Nop:If you're having problems with your account:
+	Nop:or have any other questions, send them here:
+	Nop:and we'll get back to you.:
+	Nop::
+	Nop:When you're sending questions to us, please:
+	Nop:try to be as specific as you can, so we can:
+	Nop:figure out exactly how to help you.:
+	Nop::
+	Exit:Exit this menu:
+EndMenu
+
+Menu Top Right Offset 0 -1 HotKeys
+	Title:Global HotKeys:h:
+
+# Note - if you delete access to a program up here but leave
+# it in here, then IT CAN STILL BE EXECUTED. Be warned!
+
+	Exec:p\: Pine:NKp:/usr/slocal/bin/pine:
+	Args:f\: Finger:PKf:/usr/bin/finger -m:Who do you want to finger:
+	Args:M\: Messages On/Off:KM:/usr/bin/mesg:Enter y or n:
+#      Exec:x\: Lynx:NKx:/usr/slocal/bin/lynx -ftp -noprint -restrictions=editor,file_url,exec,shell,suspend -telnet :
+	Nop::
+	Exit:Back to last menu:
+EndMenu
+
+#Include system.intro system.module system.rc
+Include system.module system.rc
+
+# Include other system initialisation files.        
